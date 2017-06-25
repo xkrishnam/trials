@@ -1,6 +1,5 @@
 package org.khcl.shopstops.controllers;
 
-import static org.junit.Assert.assertNotNull;
 
 import org.khcl.shopstops.entity.Shop;
 import org.khcl.shopstops.services.ShopService;
@@ -34,8 +33,7 @@ public class ShopController {
 	@RequestMapping(method=RequestMethod.GET,produces="application/json")
 	@ResponseBody
 	public Shop getNearestshop(@RequestParam("latitude") double latitude,@RequestParam("longitude") double longitude){
-		assertNotNull("latitude must not null", latitude);
-		assertNotNull("Longitude must not null",longitude);
+	    
 		logger.info("finding nearest shop from latitude :{} and logitude :{}",latitude,longitude);
 		return this.shopService.getNearestShop(latitude,longitude);
 	}
